@@ -80,7 +80,7 @@ export const AlertProvider = ({ children }: Props) => {
 
   const showSuccess = useCallback(
     (newMessage: string, options?: ShowOptions) => {
-      show('success', newMessage, options)
+      show('success', newMessage, { persist: true })
     },
     [show]
   )

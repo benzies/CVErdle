@@ -1,6 +1,8 @@
 import { Fragment } from 'react'
 import { Transition } from '@headlessui/react'
 import classNames from 'classnames'
+import { CVE_DETAILS } from '../../constants/strings'
+import { solution } from '../../lib/words'
 
 type Props = {
   isOpen: boolean
@@ -36,7 +38,12 @@ export const Alert = ({
     >
       <div className={classes}>
         <div className="p-2">
-          <p className="text-sm text-center font-medium">{message}</p>
+          <p className="text-sm text-center font-medium bold">{message}</p>{' '}
+          <p className="text-sm text-center font-medium underline">
+            <a href={CVE_DETAILS(solution)} target="_blank">
+              CVE-2021-{solution}
+            </a>
+          </p>
         </div>
       </div>
     </Transition>
