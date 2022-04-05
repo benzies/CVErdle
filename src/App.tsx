@@ -45,8 +45,11 @@ function App() {
     '(prefers-color-scheme: dark)'
   ).matches
 
-  const { showError: showErrorAlert, showSuccess: showSuccessAlert } =
-    useAlert()
+  const {
+    showError: showErrorAlert,
+    showSuccess: showSuccessAlert,
+    showFailed: showFailedAlert,
+  } = useAlert()
   const [currentGuess, setCurrentGuess] = useState('')
   const [isGameWon, setIsGameWon] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false)
@@ -157,11 +160,11 @@ function App() {
       setTimeout(() => {
         setIsStatsModalOpen(true)
       }, GAME_LOST_INFO_DELAY)
-      showErrorAlert(CORRECT_WORD_MESSAGE, {
+      showFailedAlert(CORRECT_WORD_MESSAGE, {
         persist: true,
       })
     }
-  }, [isGameWon, isGameLost, showSuccessAlert, showErrorAlert])
+  }, [isGameWon, isGameLost, showSuccessAlert, showErrorAlert, showFailedAlert])
 
   const onChar = (value: string) => {
     if (
