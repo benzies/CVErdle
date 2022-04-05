@@ -7,7 +7,7 @@ import { solution } from '../../lib/words'
 type Props = {
   isOpen: boolean
   message: string
-  variant?: 'success' | 'error'
+  variant?: 'success' | 'error' | 'failed'
   topMost?: boolean
 }
 
@@ -20,7 +20,7 @@ export const Alert = ({
   const classes = classNames(
     'fixed z-20 top-14 left-1/2 transform -translate-x-1/2 max-w-sm shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden',
     {
-      'bg-rose-500 text-white': variant === 'error',
+      'bg-rose-500 text-white': variant === 'error' || variant === 'failed',
       'bg-blue-500 text-white': variant === 'success',
     }
   )
@@ -39,11 +39,15 @@ export const Alert = ({
       <div className={classes}>
         <div className="p-2">
           <p className="text-sm text-center font-medium bold">{message}</p>{' '}
-          <p className="text-sm text-center font-medium underline">
-            <a href={CVE_DETAILS(solution)} target="_blank" rel="noreferrer">
-              CVE-2021-{solution}
-            </a>
-          </p>
+          {variant !== 'error' ? (
+            <p className="text-sm text-center font-medium underline">
+              <a href={CVE_DETAILS(solution)} target="_blank" rel="noreferrer">
+                CVE-2021-{solution}
+              </a>
+            </p>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </Transition>
