@@ -40,7 +40,7 @@ export const Alert = ({
         <div className="p-2">
           <p className="text-sm text-center font-medium bold">{message}</p>{' '}
           <p className="text-sm text-center font-medium underline">
-            <a href={CVE_DETAILS(solution)} target="_blank">
+            <a href={CVE_DETAILS(solution)} target="_blank" rel="noreferrer">
               CVE-2021-{solution}
             </a>
           </p>

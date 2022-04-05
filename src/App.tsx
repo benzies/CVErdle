@@ -159,7 +159,7 @@ function App() {
         persist: true,
       })
     }
-  }, [isGameWon, isGameLost, showSuccessAlert])
+  }, [isGameWon, isGameLost, showSuccessAlert, showErrorAlert])
 
   const onChar = (value: string) => {
     if (
