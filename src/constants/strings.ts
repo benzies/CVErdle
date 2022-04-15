@@ -1,5 +1,6 @@
-export const GAME_TITLE = process.env.REACT_APP_GAME_NAME!
+import { answer } from './cvearray'
 
+export const GAME_TITLE = process.env.REACT_APP_GAME_NAME!
 export const WIN_MESSAGES = [
   'Heck, better patch!',
   'Hackers!',
@@ -29,5 +30,5 @@ export const TOTAL_TRIES_TEXT = 'Total tries'
 export const SUCCESS_RATE_TEXT = 'Success rate'
 export const CURRENT_STREAK_TEXT = 'Current streak'
 export const BEST_STREAK_TEXT = 'Best streak'
-export const CVE_DETAILS = (solution: string) =>
-  `https://nvd.nist.gov/vuln/detail/CVE-2021-${solution}`
+export const CVE_DETAILS = (answer: string) =>
+  `https://nvd.nist.gov/vuln/detail/CVE-${answer}`
